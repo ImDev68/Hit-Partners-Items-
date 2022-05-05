@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/ImDev68/Hit-Partners-Items-
+build-by-default: true
+branches:
+- main
+projects:
+  Hit-Partners-Items-:
+    path: ""
+...
