@@ -23,6 +23,8 @@ use pocketmine\event\Listener;
 
 use pocketmine\utils\TextFormat as TE;
 
+use partneritems\items\InventoryAbility;
+
 /**INTERNAL STORAGE
 /USE partneritems\Item;
 **/
@@ -41,7 +43,7 @@ class SpecialItems implements Listener {
    public function onDamage(EntityDamageByEntityEvent $event){
         $damager = $event->getDamager();
         $entity = $event->getEntity();
-        if($entity instanceof Player && $damager instanceof Player && $damager->getInventory()->getItemInHand()->getCustomName() === "§r§b§lInventory Clogger"){
+        if($entity instanceof Player && $damager instanceof Player && $damager->getInventory()->getItemInHand() instanceof InventoryAbility){
          if (!isset($this->globalCooldown[$damager->getName()])) {
 
             $this->globalCooldown[$damager->getName()] = time() + 180;
