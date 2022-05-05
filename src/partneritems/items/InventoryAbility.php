@@ -9,11 +9,16 @@ use pocketmine\utils\TextFormat;
 
 class InventoryAbility extends Item {
   
+  const PARTNERITEM = "ability";
+  
   public function __construct(string $name = "§r§b§lInventory Clogger")
     {
         parent::__construct(new ItemIdentifier(ItemIds::FIRE_CHARGE, 0), $name);
         $this->setCustomName($name);
         $this->setLore([TextFormat::colorize("§r§7Hit your enemy to fill their inventory with wooden pickaxes\n\n§r§7Found in §dstore.astralmcpe.cc")]);
+        $nbt = $this->getNamedTag();
+        $nbt->setString(self::PARTNERITEM, $this);
+        $this->setNamedTag($nbt);
     }
 
 }
